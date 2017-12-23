@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		282A867C1FEE03E00095465C /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282A867B1FEE03E00095465C /* CoreML.framework */; };
+		282A86811FEE21680095465C /* GenderByName.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 282A86801FEE21640095465C /* GenderByName.mlmodel */; };
 		F49D380A1FED336F002BD3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D38091FED336F002BD3A5 /* AppDelegate.swift */; };
 		F49D380C1FED336F002BD3A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D380B1FED336F002BD3A5 /* ViewController.swift */; };
 		F49D380F1FED336F002BD3A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49D380D1FED336F002BD3A5 /* Main.storyboard */; };
@@ -17,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		282A867B1FEE03E00095465C /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		282A86801FEE21640095465C /* GenderByName.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderByName.mlmodel; sourceTree = "<group>"; };
 		F49D38061FED336F002BD3A5 /* machineLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = machineLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49D38091FED336F002BD3A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49D380B1FED336F002BD3A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282A867C1FEE03E00095465C /* CoreML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +66,7 @@
 		F49D38081FED336F002BD3A5 /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
+				282A86801FEE21640095465C /* GenderByName.mlmodel */,
 				F49D38091FED336F002BD3A5 /* AppDelegate.swift */,
 				F49D380B1FED336F002BD3A5 /* ViewController.swift */,
 				F49D380D1FED336F002BD3A5 /* Main.storyboard */,
@@ -149,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49D380C1FED336F002BD3A5 /* ViewController.swift in Sources */,
+				282A86811FEE21680095465C /* GenderByName.mlmodel in Sources */,
 				F49D380A1FED336F002BD3A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

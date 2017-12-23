@@ -1,33 +1,35 @@
 //
 //  ViewController.swift
-//  CoreML
+//  NamesML
 //
-//  Created by Shravan K on 12/22/17.
-//  Copyright © 2017 GoDimensions. All rights reserved.
+//  Created by Brian Advent on 31.08.17.
+//  Copyright © 2017 Brian Advent. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var genderPrediction: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var genderLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        textField.delegate = self
+        nameTextField.delegate = self
+        
     }
     
+    // string="nina"
+    /*  "firstLetter1=n"    :1.0    */
+    /*  "firstLetter2=i"    :1.0    */
+    /*  "firstLetter3=n"    :1.0    */
+    /*  "lastLetter1=i"     :1.0    */
+    /*  "lastLetter2=n"     :1.0   */
+    /*  "lastLetter3=a"     :1.0    */
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func features(_ string:String) -> [String:Double] {
-        guard !string.isEmpty else {
-            return [:]
-        }
+    func features (_ string:String) -> [String:Double] {
+        guard !string.isEmpty else {return [:]}
+        
         let string = string.lowercased()
         var keys = [String]()
         
@@ -41,19 +43,41 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return keys.reduce([String: Double]()) { (result, key) -> [String: Double] in
             var result = result
             result[key] = 1.0
+            
             return result
         }
-       
+        
     }
     
-    func predictGender(_ name:String) -> String? {
-        return "hi"
+    func predictGenderFromName (_ name:String) -> String? {
+        let nameFeatures = features(name)
+        
+        let model = GenderByName()
+        
+        if let prediction = try? model.prediction(input: nameFeatures) {
+            if prediction.classLabel == "F" {
+                return "Female"
+            }else{
+                return "Male"
+            }
+        }
+        
+        return nil
+        
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        genderLabel.text = predictGenderFromName(textField.text!)
+        
+        return true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        //If any memory warning was recieved.
+        // Dispose of any resources that can be recreated.
     }
-
+    
+    
 }
 
